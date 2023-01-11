@@ -7,6 +7,7 @@ import "./index.css";
 import Navbar from "../../Navbar";
 
 import StudentActivity from "../StudentActivity";
+import { Redirect } from "react-router-dom";
 
 export default class StudentHome extends Component {
   state = { num1: "", num2: "", method: "+", answer: "", activityList: [] };
@@ -195,7 +196,7 @@ export default class StudentHome extends Component {
     const validating = localStorage.getItem("studentUserDetails");
 
     if (validating === null) {
-      return window.location.replace("/student/signup");
+      return <Redirect to="/student/signup" />;
     }
 
     return (

@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import "./index.css";
 
@@ -30,7 +30,8 @@ export default class StudentLogin extends Component {
           username === masterUserDetails.username &&
           password === masterUserDetails.password
         ) {
-          window.location.replace("/student/home");
+          const { history } = this.props;
+          history.replace("/student/home");
         }
       }
     }
@@ -42,7 +43,7 @@ export default class StudentLogin extends Component {
     const validating = localStorage.getItem("studentUserDetails");
 
     if (validating === null) {
-      return window.location.replace("/student/signup");
+      return <Redirect to="/student/signup" />;
     }
     return (
       <div className="login-main-container">

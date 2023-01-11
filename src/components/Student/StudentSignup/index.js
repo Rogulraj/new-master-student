@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import "./index.css";
 
@@ -29,7 +29,8 @@ export default class StudentSignup extends Component {
       };
       const convertToString = JSON.stringify(studentUserDetails);
       localStorage.setItem("studentUserDetails", convertToString);
-      window.location.replace("/student/login");
+      const { history } = this.props;
+      history.replace("/student/login");
     }
   };
 
@@ -37,6 +38,10 @@ export default class StudentSignup extends Component {
     const { username, password } = this.state;
 
     const userValidate = JSON.parse(localStorage.getItem("studentUserDetails"));
+
+    if (userValidate !== null) {
+      return <Redirect to="/student/login" />;
+    }
 
     return (
       <div className="signup-main-container">

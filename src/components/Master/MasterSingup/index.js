@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import "./index.css";
 
@@ -29,7 +29,8 @@ export default class MasterSignup extends Component {
       };
       const convertToString = JSON.stringify(masterUserDetails);
       localStorage.setItem("masterUserDetails", convertToString);
-      window.location.replace("/master/login");
+      const { history } = this.props;
+      history.replace("/master/login");
     }
   };
 
@@ -37,6 +38,10 @@ export default class MasterSignup extends Component {
     const { username, password } = this.state;
 
     const userValidate = JSON.parse(localStorage.getItem("masterUserDetails"));
+
+    if (userValidate !== null) {
+      return <Redirect to="/master/login" />;
+    }
     return (
       <div className="master-signup-main-container">
         <div className="master-signup-login-card">

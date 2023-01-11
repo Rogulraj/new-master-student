@@ -1,17 +1,18 @@
 import { Component } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import { MdLogout } from "react-icons/md";
 
 import "./index.css";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   logoutTriggered = () => {
     localStorage.removeItem("activities");
     localStorage.removeItem("masterUserDetails");
     localStorage.removeItem("studentUserDetails");
-    window.location.replace("/");
+    const { history } = this.props;
+    history.replace("/");
   };
 
   render() {
@@ -44,3 +45,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default withRouter(Navbar);

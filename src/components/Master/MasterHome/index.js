@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import Navbar from "../../Navbar";
 import MasterActivity from "../MasterActivity";
@@ -12,7 +12,7 @@ export default class MasterHome extends Component {
     const validating = localStorage.getItem("masterUserDetails");
 
     if (validating === null) {
-      return window.location.replace("/master/signup");
+      return <Redirect to="/master/signup" />;
     }
     return (
       <div className="master-home-conatiner">
