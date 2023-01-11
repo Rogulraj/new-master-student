@@ -1,0 +1,56 @@
+.home-main-container {
+  min-height: 100vh;
+  background-image: url("https://res.cloudinary.com/dy0mnmvem/image/upload/v1673362827/master/pexels-andrea-piacquadio-3931638_l5b322.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.home-title {
+  color: #000000;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: Roboto;
+}
+.home-main-card {
+  height: 400px;
+  width: 430px;
+  background-color: rgba(240, 248, 255, 0.096);
+  backdrop-filter: blur(15px);
+  box-shadow: 0px 0px 16px 0px #000000bb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.home-sub-title {
+  color: #000000;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Roboto;
+}
+.home-description {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: Roboto;
+  padding-top: 20px;
+}
+.home-button {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Roboto;
+  border-style: none;
+  background-color: #006eff;
+  border-radius: 4px;
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+  
+}
+.home-button:hover{
+    box-shadow: 0px 0px 10px 0px #000000;
+}
